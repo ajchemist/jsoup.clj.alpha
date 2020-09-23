@@ -11,9 +11,9 @@
     org.clojure/tools.deps.alpha {:mvn/version "0.8.599"}
 
 
-    clj-http        {:mvn/version "3.10.0"}
-    org.jsoup/jsoup {:mvn/version "1.12.1"}
-    ring/ring-core  {:mvn/version "1.8.0"}
+    clj-http        {:mvn/version "3.10.3"}
+    org.jsoup/jsoup {:mvn/version "1.13.1"}
+    ring/ring-core  {:mvn/version "1.8.1"}
 
 
     ;; user.tools.deps.alpha maven jar depends user.java.io artifact which is aot-compiled.
