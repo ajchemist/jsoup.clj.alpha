@@ -1,6 +1,11 @@
 {:paths ["src"]
  :aliases
  {
+  :provided
+  {:extra-deps
+   {
+    org.jsoup/jsoup {:mvn/version "1.13.1"}
+    }}
   :test
   {:extra-paths ["test"]
    :extra-deps
@@ -8,7 +13,7 @@
     com.cognitect/test-runner    {:git/url "https://github.com/cognitect-labs/test-runner.git" :sha "209b64504cb3bd3b99ecfec7937b358a879f55c1"}
     org.apache.maven/maven-model {:mvn/version "3.5.4"}
     org.clojure/tools.cli        {:mvn/version "0.4.2"}
-    org.clojure/tools.deps.alpha {:mvn/version "0.8.599"}
+    org.clojure/tools.deps.alpha {:mvn/version "0.9.799"}
 
 
     clj-http        {:mvn/version "3.10.3"}
@@ -18,7 +23,8 @@
 
     ;; user.tools.deps.alpha maven jar depends user.java.io artifact which is aot-compiled.
     ;; so avoid maven procurer.
-    user.tools.deps.alpha {:git/url "https://github.com/aJchemist/user.tools.deps.alpha.git" :sha "bfe078f27e1e0fac3e9a45787e46a3773ca1e214"}
+    user.java.time/user.java.time               {:mvn/version "2020.267.10158"}
+    user.tools.deps.alpha/user.tools.deps.alpha {:git/url "https://github.com/aJchemist/user.tools.deps.alpha.git" :sha "14d099e738cda8d59e99ab8fbaf31834c29bc072"}
     }}
 
 

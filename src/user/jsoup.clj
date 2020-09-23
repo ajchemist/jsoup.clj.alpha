@@ -2,19 +2,19 @@
   (:refer-clojure :exclude [select])
   (:import
    org.jsoup.Jsoup
-   org.jsoup.helper.HttpConnection
-   org.jsoup.nodes.Attribute
-   org.jsoup.nodes.Attributes
-   org.jsoup.nodes.Comment
-   org.jsoup.nodes.DataNode
+   ;; org.jsoup.helper.HttpConnection
+   ;; org.jsoup.nodes.Attribute
+   ;; org.jsoup.nodes.Attributes
+   ;; org.jsoup.nodes.Comment
+   ;; org.jsoup.nodes.DataNode
    org.jsoup.nodes.Document
-   org.jsoup.nodes.DocumentType
+   ;; org.jsoup.nodes.DocumentType
    org.jsoup.nodes.Element
-   org.jsoup.nodes.Node
-   org.jsoup.nodes.TextNode
-   org.jsoup.nodes.XmlDeclaration
-   org.jsoup.parser.Parser
-   org.jsoup.parser.Tag
+   ;; org.jsoup.nodes.Node
+   ;; org.jsoup.nodes.TextNode
+   ;; org.jsoup.nodes.XmlDeclaration
+   ;; org.jsoup.parser.Parser
+   ;; org.jsoup.parser.Tag
    org.jsoup.select.Elements
    ))
 
@@ -34,7 +34,7 @@
   (-attrs [e] (.attributes e))
   (-classname [e] (.className e))
   (-text [e] (.text e))
-  (-select [e selector] (.select e selector)))
+  (-select [e ^String selector] (.select e selector)))
 
 
 (extend-type Elements
@@ -47,7 +47,7 @@
   (-attrs [_] (.attributes document))
   (-classname [_] (.className document))
   (-text [_] (.text document))
-  (-select [_ selector] (.select document selector)))
+  (-select [_ selector] (.select document ^String selector)))
 
 
 (defn parse
