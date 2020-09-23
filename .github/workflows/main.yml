@@ -114,7 +114,7 @@ jobs:
         run: |
           git config --local user.name $GITHUB_ACTOR
           git config --local user.email $(git --no-pager show --format="<%ae>" -s HEAD)
-          git add -u -- pom.xml
+          git add -- pom.xml
           git commit -m "$(clojure -A:provided:test -m user.apache.maven.script.get-pom-version) [ci skip]"
           git remote -v
           git push
