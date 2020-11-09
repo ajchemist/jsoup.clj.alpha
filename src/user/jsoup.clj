@@ -1,6 +1,7 @@
 (ns user.jsoup
   (:refer-clojure :exclude [select])
   (:import
+   java.io.InputStream
    org.jsoup.Jsoup
    ;; org.jsoup.helper.HttpConnection
    ;; org.jsoup.nodes.Attribute
@@ -13,7 +14,7 @@
    ;; org.jsoup.nodes.Node
    ;; org.jsoup.nodes.TextNode
    ;; org.jsoup.nodes.XmlDeclaration
-   ;; org.jsoup.parser.Parser
+   org.jsoup.parser.Parser
    ;; org.jsoup.parser.Tag
    org.jsoup.select.Elements
    ))
@@ -50,15 +51,28 @@
   (-select [_ selector] (.select document ^String selector)))
 
 
-(defn parse
+(defn ^Document
+  parse
+  ([^String html-text]
+   (Jsoup/parse html-text))
+  ([^String html-text ^String base-uri]
+   (Jsoup/parse html-text base-uri))
+  ([^String html-text ^String base-uri ^Parser parser]
+   (Jsoup/parse html-text base-uri parser)))
+
+
+(defn
   ^Document
-  [^String html-text]
-  (Jsoup/parse html-text))
+  parse-stream
+  ([^InputStream in ^String charset ^String base-uri]
+   (Jsoup/parse in charset base-uri))
+  ([^InputStream in ^String charset ^String base-uri ^Parser parser]
+   (Jsoup/parse in charset base-uri parser)))
 
 
 (defn document
-  [^String html-text]
-  (->JsoupDocument (parse html-text)))
+  [^Document jsoup-document]
+  (->JsoupDocument jsoup-document))
 
 
 (defn select

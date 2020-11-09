@@ -8,11 +8,9 @@
 
 
 (defmethod http/coerce-response-body :jsoup/document
-  [req resp]
+  [{:keys [url] :as req} resp]
   (update resp :body
     (fn [body]
-      (let [charset (or (:body-charset req) (response/get-charset resp))
-            body    (if (string? charset)
-                      (String. ^"[B" (http.util/force-byte-array body) ^String charset)
-                      (String. ^"[B" (http.util/force-byte-array body)))]
-        (jsoup/document body)))))
+      (let [charset (or (:jsoup.document/charset req) (response/get-charset resp) "UTF-8")]
+        (with-open [stream (http.util/force-stream body)]
+          (jsoup/document (jsoup/parse-stream stream charset url)))))))
