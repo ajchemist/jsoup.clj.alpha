@@ -3,9 +3,15 @@ name: Lint
 
 on:
   push:
-    branches: [ master ]
+    paths:
+      - '.github/workflows/lint.yml'
+      - 'src/**/*.clj'
+      - 'src/**/*.cljc'
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 
 jobs:
@@ -22,9 +28,9 @@ jobs:
       #     check-name: This is a report name
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup clj-kondo
-        uses: DeLaGuardo/setup-clj-kondo@v1
+        uses: DeLaGuardo/setup-clj-kondo@master
         with:
-          version: '2020.09.09'
+          version: '2022.02.09'
       - name: Lint
         run: |
           clj-kondo --lint src
