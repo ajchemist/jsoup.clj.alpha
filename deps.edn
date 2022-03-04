@@ -24,6 +24,10 @@
     }}
 
 
+  :build
+  {:deps       {io.github.clojure/tools.build {:git/tag "v0.7.7" :git/sha "1474ad6"}
+                user.java.time/user.java.time {:mvn/version "2020.267.10158"}}
+   :ns-default build.package}
   :1.8
   {:extra-deps
    {
