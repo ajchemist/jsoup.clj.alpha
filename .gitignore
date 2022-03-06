@@ -1,5 +1,6 @@
-/.cpcache
-.nrepl-port
-/target
+.cpcache
 .clj-kondo/.cache
-.obsolete
+.lsp/.cache
+.nrepl*
+.ci/deploy-key
+.ci/deploy-key.pub
