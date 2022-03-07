@@ -30,7 +30,7 @@ jobs:
       - name: Setup clj-kondo
         uses: DeLaGuardo/setup-clj-kondo@master
         with:
-          version: '2022.02.09'
+          version: '2022.03.04'
       - name: Lint
         run: |
           clj-kondo --lint src
