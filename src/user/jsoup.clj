@@ -30,6 +30,11 @@
   (^org.jsoup.select.Elements -select [e ^String selector]))
 
 
+(extend-type nil
+  IElement
+  (-text [_] ""))
+
+
 (extend-type Element
   IElement
   (-attrs [e] (.attributes e))
