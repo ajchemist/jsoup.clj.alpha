@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.ajchemist</groupId>
   <artifactId>user.jsoup</artifactId>
-  <version>2022.63.49963</version>
+  <version>2022.66.1210</version>
   <repositories>
     <repository>
       <id>clojars</id>
