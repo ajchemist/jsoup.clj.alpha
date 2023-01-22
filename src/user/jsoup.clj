@@ -56,8 +56,8 @@
   (-select [_ selector] (.select document ^String selector)))
 
 
-(defn ^Document
-  parse
+(defn parse
+  ^Document
   ([^String html-text]
    (Jsoup/parse html-text))
   ([^String html-text ^String base-uri]
@@ -66,9 +66,8 @@
    (Jsoup/parse html-text base-uri parser)))
 
 
-(defn
+(defn parse-stream
   ^Document
-  parse-stream
   ([^InputStream in ^String charset ^String base-uri]
    (Jsoup/parse in charset base-uri))
   ([^InputStream in ^String charset ^String base-uri ^Parser parser]
@@ -85,7 +84,8 @@
   (-select e selector))
 
 
-(defn ^String get-attr
+(defn get-attr
+  ^String
   [e ^String key]
   (.get (-attrs e) key))
 
