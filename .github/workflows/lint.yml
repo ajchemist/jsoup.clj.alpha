@@ -2,25 +2,31 @@ name: Lint
 
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - '.github/workflows/lint.yml'
-      - 'src/**/*.clj'
-      - 'src/**/*.cljc'
+      - '.clj-kondo/config.edn'
+      - 'src/core/**/*.clj'
+      - 'src/core/**/*.cljs'
+      - 'src/core/**/*.cljc'
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
+
+
+env:
+  clj-kondo-version: '2022.12.10'
 
 
 jobs:
   clj-kondo:
     name: Lint with clj-kondo
-    if: "!(contains(github.event.head_commit.message, 'ci skip') || contains(github.event.head_commit.message, 'skip ci'))"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       # - uses: DeLaGuardo/clojure-lint-action@f712330e03eec4daa36da7045213190083aca4dd
       #   with:
       #     clj-kondo-args: --lint src # --config .clj-kondo/config.edn
@@ -30,8 +36,15 @@ jobs:
       - name: Setup clj-kondo
         uses: DeLaGuardo/setup-clj-kondo@master
         with:
-          version: '2022.03.04'
+          version: ${{ env.clj-kondo-version }}
       - name: Lint
         run: |
           clj-kondo --lint src
           # --config .clj-kondo/config.edn
+      - name: Discord gh action digest notification
+        if: always() # Pick up events even if the job fails or is canceled.
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: sarisia/actions-status-discord@v1
+        # with:
+        #   args: '{{ GITHUB_ACTION }} as {{ EVENT_PAYLOAD.repository.full_name }}'
