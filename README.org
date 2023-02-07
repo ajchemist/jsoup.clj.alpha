@@ -1,5 +1,0 @@
-#+TITLE: user.jsoup
-
-
-[[https://clojars.org/user.java.io][https://img.shields.io/clojars/v/user.jsoup.svg?style=flat-square]]
-[[https://travis-ci.org/aJchemist/user.java.io][https://img.shields.io/travis/aJchemist/user.jsoup/master.svg?style=flat-square]]
