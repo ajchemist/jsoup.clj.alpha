@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.ajchemist</groupId>
-  <artifactId>user.jsoup</artifactId>
-  <version>2023.22.36494</version>
+  <artifactId>jsoup.clj.alpha</artifactId>
+  <version>2023.38.13972</version>
   <repositories>
     <repository>
       <id>clojars</id>
@@ -20,8 +20,8 @@
       <version>1.11.1</version>
     </dependency>
   </dependencies>
-  <name>user.jsoup</name>
+  <name>jsoup.clj.alpha</name>
   <scm>
-    <url>https://github.com/ajchemist/user.jsoup</url>
+    <url>https://github.com/ajchemist/jsoup.clj.alpha</url>
   </scm>
 </project>
