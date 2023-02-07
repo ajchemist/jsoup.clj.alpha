@@ -20,7 +20,7 @@
 
     ;; user.tools.deps.alpha maven jar depends user.java.io artifact which is aot-compiled.
     ;; so avoid maven procurer.
-    user.java.time/user.java.time {:mvn/version "2020.267.10158"}
+    io.github.ajchemist/user.java.time {:mvn/version "2022.75.23671"}
     }}
 
 
@@ -35,8 +35,8 @@
   :build
   {:deps
    {
-    io.github.clojure/tools.build {:git/tag "v0.9.2" :git/sha "fe6b140"}
-    user.java.time/user.java.time {:mvn/version "2020.267.10158"}
+    io.github.clojure/tools.build      {:git/tag "v0.9.3" :git/sha "e537cd1"}
+    io.github.ajchemist/user.java.time {:mvn/version "2022.75.23671"}
     }
    :ns-default build.package}
 

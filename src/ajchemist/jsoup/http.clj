@@ -1,9 +1,9 @@
-(ns user.jsoup.http
+(ns ajchemist.jsoup.http
   (:require
    [clj-http.client :as http]
    [clj-http.util :as http.util]
    [ring.util.response :as response]
-   [user.jsoup :as jsoup]
+   [ajchemist.jsoup :as jsoup]
    ))
 
 

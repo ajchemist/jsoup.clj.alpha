@@ -1,10 +1,11 @@
-name: Main CI
+name: Package CI
 
 
 on:
   push:
     paths:
       - ".github/workflows/main.yml"
+      - "deps.edn"
       - "src/**/*.clj"
       - "src/**/*.cljc"
       - "test/**/*.clj"
@@ -17,9 +18,9 @@ on:
 
 
 env:
-  clojure-cli: 1.11.1.1208
-  java-version: "17"
-  library: io.github.ajchemist/user.jsoup
+  clojure-cli: "latest"
+  java-version: "19"
+  library: io.github.ajchemist/jsoup
 
 
 jobs:

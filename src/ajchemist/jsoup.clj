@@ -1,4 +1,4 @@
-(ns user.jsoup
+(ns ajchemist.jsoup
   (:refer-clojure :exclude [select])
   (:import
    java.io.InputStream
